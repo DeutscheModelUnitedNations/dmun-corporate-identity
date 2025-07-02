@@ -1,5 +1,27 @@
+$schema: ./colors.schema.json
+
 shades:
   dmun:
+    primary: "#3D7DD2"
+    secondary: "#ABABAB"
+    accent: "#D0AF65"
+
+    info: "#45BC64"
+    success: "#587491"
+    warning: "#F77E19"
+    error: "#F51D42"
+
+  munsh:
+    primary: "#3D7DD2"
+    secondary: "#ABABAB"
+    accent: "#D0AF65"
+
+    info: "#45BC64"
+    success: "#587491"
+    warning: "#F77E19"
+    error: "#F51D42"
+
+  munbw:
     primary: "#3D7DD2"
     secondary: "#ABABAB"
     accent: "#D0AF65"
