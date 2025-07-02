@@ -25,6 +25,16 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Check scripts directory
+        run: |
+          echo "=== Current directory ==="
+          pwd
+          echo "=== Scripts directory contents ==="
+          ls -la scripts/
+          echo "=== Checking if generate scripts exist ==="
+          test -f scripts/generate-shades-css.js && echo "✅ generate-shades-css.js exists" || echo "❌ generate-shades-css.js missing"
+          test -f scripts/generate-daisyui-css.js && echo "✅ generate-daisyui-css.js exists" || echo "❌ generate-daisyui-css.js missing"
+
       - name: Build package
         run: npm run build
 
