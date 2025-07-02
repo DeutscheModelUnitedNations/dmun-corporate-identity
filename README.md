@@ -4,16 +4,16 @@ A comprehensive corporate identity package for Deutsche Model United Nations (DM
 
 ## Installation
 
-First, configure npm to use GitHub Packages for the `@deutschemodulunitednations` scope:
+First, configure npm to use GitHub Packages for the `@deutschemodelunitednations` scope:
 
 ```bash
-npm config set @deutschemodulunitednations:registry https://npm.pkg.github.com
+npm config set @deutschemodelunitednations:registry https://npm.pkg.github.com
 ```
 
 Then install the package:
 
 ```bash
-npm install @deutschemodulunitednations/corporate-identity
+npm install @deutschemodelunitednations/corporate-identity
 ```
 
 ## Usage
@@ -22,19 +22,19 @@ npm install @deutschemodulunitednations/corporate-identity
 
 ```javascript
 // Import the generated shade variables
-import '@deutschemodulunitednations/corporate-identity/css/shades';
+import '@deutschemodelunitednations/corporate-identity/css/shades';
 
 // Import light theme
-import '@deutschemodulunitednations/corporate-identity/css/light';
+import '@deutschemodelunitednations/corporate-identity/css/light';
 
 // Import dark theme  
-import '@deutschemodulunitednations/corporate-identity/css/dark';
+import '@deutschemodelunitednations/corporate-identity/css/dark';
 ```
 
 ### Using the JavaScript API
 
 ```javascript
-import dmun from '@deutschemodulunitednations/corporate-identity';
+import dmun from '@deutschemodelunitednations/corporate-identity';
 
 // Get all colors configuration
 const colors = dmun.loadColors();
@@ -77,9 +77,9 @@ module.exports = {
 Then import the CSS files in your main CSS file:
 
 ```css
-@import '@deutschemodulunitednations/corporate-identity/css/shades';
-@import '@deutschemodulunitednations/corporate-identity/css/light';
-@import '@deutschemodulunitednations/corporate-identity/css/dark';
+@import '@deutschemodelunitednations/corporate-identity/css/shades';
+@import '@deutschemodelunitednations/corporate-identity/css/light';
+@import '@deutschemodelunitednations/corporate-identity/css/dark';
 ```
 
 ### Available Colors
@@ -145,10 +145,10 @@ Users need to configure npm to access your GitHub Packages:
 
 ```bash
 # Configure npm to use GitHub Packages for your organization
-npm config set @deutschemodulunitednations:registry https://npm.pkg.github.com
+npm config set @deutschemodelunitednations:registry https://npm.pkg.github.com
 
 # If installing in a project, you can also use .npmrc file:
-echo "@deutschemodulunitednations:registry=https://npm.pkg.github.com" >> .npmrc
+echo "@deutschemodelunitednations:registry=https://npm.pkg.github.com" >> .npmrc
 ```
 
 ## Files Structure
