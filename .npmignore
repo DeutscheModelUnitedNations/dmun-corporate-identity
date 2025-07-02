@@ -1,0 +1,35 @@
+# Development files
+src/
+scripts/
+static/
+.svelte-kit/
+build/
+.env
+.env.*
+
+# Development dependencies
+node_modules/
+*.log
+*.lock
+.DS_Store
+
+# Vite/SvelteKit specific
+vite.config.ts
+svelte.config.js
+tailwind.config.js
+tsconfig.json
+app.html
+app.css
+dmun.css
+
+# Development tools
+.prettierrc
+.prettierignore
+.gitignore
+bun.lock
+
+# Keep only what's needed for the package
+# dist/ - included
+# colors.yml - included  
+# README.md - included
+# package.json - included automatically

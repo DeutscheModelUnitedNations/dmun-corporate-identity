@@ -1,0 +1,18 @@
+@import 'tailwindcss';
+
+@source inline("bg-primary-{50,{100..900..100},950}");
+@source inline("bg-secondary-{50,{100..900..100},950}");
+@source inline("bg-accent-{50,{100..900..100},950}");
+@source inline("bg-info-{50,{100..900..100},950}");
+@source inline("bg-success-{50,{100..900..100},950}");
+@source inline("bg-warning-{50,{100..900..100},950}");
+@source inline("text-error-{50,{100..900..100},950}");
+
+
+@plugin "daisyui";
+
+@import "./dmun.css";
+
+@import "../dist/dmun-tailwind-shades.css";
+@import "../dist/dmun-daisyUI-light.css";
+@import "../dist/dmun-daisyUI-dark.css";

@@ -1,0 +1,66 @@
+{
+  "name": "@dmun/corporate-identity",
+  "version": "1.0.0",
+  "description": "DMUN Corporate Identity containing tailwind and daisyUI configurations",
+  "keywords": ["corporate-identity", "dmun", "tailwindcss", "daisyui", "css", "colors", "themes"],
+  "homepage": "https://github.com/DeutscheModelUnitedNations/dmun-corporate-identity#readme",
+  "bugs": {
+    "url": "https://github.com/DeutscheModelUnitedNations/dmun-corporate-identity/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeutscheModelUnitedNations/dmun-corporate-identity.git"
+  },
+  "license": "CC BY-NC 4.0",
+  "author": "Deutsche Model United Nations e.V. / Tade Strehk",
+  "main": "lib/index.js",
+  "module": "lib/index.mjs",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "import": "./lib/index.mjs",
+      "require": "./lib/index.js"
+    },
+    "./colors": "./colors.yml",
+    "./css/shades": "./dist/dmun-tailwind-shades.css",
+    "./css/light": "./dist/dmun-daisyUI-light.css",
+    "./css/dark": "./dist/dmun-daisyUI-dark.css"
+  },
+  "files": ["lib/", "dist/*.css", "colors.yml", "README.md"],
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "npm run generate:css && npm run build:lib",
+    "build:lib": "vite build --mode lib",
+    "preview": "vite preview",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build",
+    "generate:css": "npm run generate:shades && npm run generate:daisyui",
+    "generate:shades": "node scripts/generate-shades-css.js",
+    "generate:daisyui": "node scripts/generate-daisyui-css.js"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-static": "^3.0.8",
+    "@sveltejs/kit": "^2.16.0",
+    "@sveltejs/vite-plugin-svelte": "^5.0.0",
+    "@tailwindcss/vite": "^4.1.10",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.10.2",
+    "daisyui": "^5.0.43",
+    "prettier": "^3.4.2",
+    "prettier-plugin-svelte": "^3.3.3",
+    "svelte": "^5.0.0",
+    "svelte-check": "^4.0.0",
+    "tailwindcss": "^4.1.10",
+    "typescript": "^5.0.0",
+    "vite": "^6.2.6",
+    "vite-plugin-devtools-json": "^0.2.0",
+    "vite-plugin-dts": "^4.4.0"
+  },
+  "dependencies": {
+    "esbuild": "^0.25.5",
+    "js-yaml": "^4.1.0",
+    "tailwind-shades": "^1.1.2"
+  }
+}

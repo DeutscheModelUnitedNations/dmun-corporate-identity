@@ -1,0 +1,87 @@
+shades:
+  dmun:
+    primary: "#3D7DD2"
+    secondary: "#ABABAB"
+    accent: "#D0AF65"
+
+    info: "#45BC64"
+    success: "#587491"
+    warning: "#F77E19"
+    error: "#F51D42"
+
+themes:
+  light:
+    colors:
+      base-100: primary-50
+      base-200: primary-100
+      base-300: primary-200
+
+      primary: primary-500
+      primary-content: primary-900
+      secondary: secondary-500
+      secondary-content: secondary-900
+      accent: accent-500
+      accent-content: accent-900
+      neutral: primary-900
+      neutral-content: primary-50
+
+      info: info-300
+      info-content: info-900
+      success: success-300
+      success-content: success-900
+      warning: warning-300
+      warning-content: warning-900
+      error: error-300
+      error-content: error-900
+
+    visuals:
+      default: true
+      prefersdark: false
+      color-scheme: light
+
+      radius-selector: 0.5rem
+      radius-field: 0.5rem
+      radius-box: 0.5rem
+      size-selector: 0.25rem
+      size-field: 0.25rem
+      border: 1px
+      depth: 1
+      noise: 0
+
+  dark:
+    colors:
+      base-100: primary-900
+      base-200: primary-800
+      base-300: primary-700
+
+      primary: primary-500
+      primary-content: primary-50
+      secondary: secondary-500
+      secondary-content: secondary-50
+      accent: accent-500
+      accent-content: accent-50
+      neutral: primary-50
+      neutral-content: primary-900
+
+      info: info-700
+      info-content: info-50
+      success: success-700
+      success-content: success-50
+      warning: warning-700
+      warning-content: warning-50
+      error: error-700
+      error-content: error-50
+
+    visuals:
+      default: true
+      prefersdark: true
+      color-scheme: dark
+
+      radius-selector: 0.5rem
+      radius-field: 0.5rem
+      radius-box: 0.5rem
+      size-selector: 0.25rem
+      size-field: 0.25rem
+      border: 1px
+      depth: 1
+      noise: 0
