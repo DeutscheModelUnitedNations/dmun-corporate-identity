@@ -54,7 +54,7 @@ jobs:
           node -e "
             const pkg = require('./package.json');
             pkg.version = '$VERSION';
-            pkg.name = '@deutschemodulunitednations/corporate-identity';
+            pkg.name = '@DeutscheModelUnitedNations/corporate-identity';
             pkg.publishConfig = {
               registry: 'https://npm.pkg.github.com',
               access: 'public'
