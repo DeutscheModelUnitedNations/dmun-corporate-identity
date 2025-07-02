@@ -45,16 +45,22 @@ jobs:
       - name: Run tests (if available)
         run: npm test --if-present
 
-      - name: Update package.json for GitHub Packages
+      - name: Update package.json version and GitHub Packages config
         run: |
+          # Extract version from GitHub release tag (remove 'v' prefix if present)
+          VERSION=$(echo "${{ github.event.release.tag_name }}" | sed 's/^v//')
+          echo "Setting version to: $VERSION"
+          
           node -e "
             const pkg = require('./package.json');
+            pkg.version = '$VERSION';
             pkg.name = '@deutschemodulunitednations/corporate-identity';
             pkg.publishConfig = {
               registry: 'https://npm.pkg.github.com',
               access: 'public'
             };
             require('fs').writeFileSync('./package.json', JSON.stringify(pkg, null, 2));
+            console.log('✅ Updated package.json with version:', pkg.version);
           "
 
       - name: Publish to GitHub Packages
