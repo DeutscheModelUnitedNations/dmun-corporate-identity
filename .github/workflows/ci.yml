@@ -22,10 +22,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'npm'
+          # Remove cache to avoid optional dependency issues
 
       - name: Install dependencies
-        run: npm ci
+        run: |
+          # Remove package-lock to ensure fresh install
+          rm -f package-lock.json
+          # Use npm install instead of npm ci for better optional dependency handling
+          npm install
 
       - name: Check scripts directory
         run: |
