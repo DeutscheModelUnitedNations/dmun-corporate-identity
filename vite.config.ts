@@ -29,9 +29,45 @@ export default defineConfig(({ mode }) => {
 			plugins: [
 				dts({
 					insertTypesEntry: true,
-					outDir: 'lib'
+					outDir: 'lib',
+					tsconfigPath: './tsconfig.lib.json'
 				})
-			]
+			],
+			esbuild: {
+				tsconfigRaw: JSON.stringify({
+					compilerOptions: {
+						target: 'ES2020',
+						module: 'ESNext',
+						moduleResolution: 'node',
+						lib: ['ES2020'],
+						declaration: true,
+						declarationMap: true,
+						outDir: './lib',
+						rootDir: './src',
+						strict: true,
+						esModuleInterop: true,
+						allowSyntheticDefaultImports: true,
+						forceConsistentCasingInFileNames: true,
+						skipLibCheck: true,
+						resolveJsonModule: true,
+						allowJs: false,
+						noEmit: false,
+						isolatedModules: true,
+						verbatimModuleSyntax: false
+					},
+					include: ['src/**/*'],
+					exclude: [
+						'node_modules',
+						'dist',
+						'lib',
+						'**/*.test.ts',
+						'**/*.spec.ts',
+						'src/routes',
+						'src/app.html',
+						'src/app.css'
+					]
+				})
+			}
 		};
 	}
 
