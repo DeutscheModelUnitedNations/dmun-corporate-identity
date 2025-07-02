@@ -4,8 +4,16 @@ A comprehensive corporate identity package for Deutsche Model United Nations (DM
 
 ## Installation
 
+First, configure npm to use GitHub Packages for the `@deutschemodulunitednations` scope:
+
 ```bash
-npm install @dmun/corporate-identity
+npm config set @deutschemodulunitednations:registry https://npm.pkg.github.com
+```
+
+Then install the package:
+
+```bash
+npm install @deutschemodulunitednations/corporate-identity
 ```
 
 ## Usage
@@ -14,19 +22,19 @@ npm install @dmun/corporate-identity
 
 ```javascript
 // Import the generated shade variables
-import '@dmun/corporate-identity/css/shades';
+import '@deutschemodulunitednations/corporate-identity/css/shades';
 
 // Import light theme
-import '@dmun/corporate-identity/css/light';
+import '@deutschemodulunitednations/corporate-identity/css/light';
 
 // Import dark theme  
-import '@dmun/corporate-identity/css/dark';
+import '@deutschemodulunitednations/corporate-identity/css/dark';
 ```
 
 ### Using the JavaScript API
 
 ```javascript
-import dmun from '@dmun/corporate-identity';
+import dmun from '@deutschemodulunitednations/corporate-identity';
 
 // Get all colors configuration
 const colors = dmun.loadColors();
@@ -69,9 +77,9 @@ module.exports = {
 Then import the CSS files in your main CSS file:
 
 ```css
-@import '@dmun/corporate-identity/css/shades';
-@import '@dmun/corporate-identity/css/light';
-@import '@dmun/corporate-identity/css/dark';
+@import '@deutschemodulunitednations/corporate-identity/css/shades';
+@import '@deutschemodulunitednations/corporate-identity/css/light';
+@import '@deutschemodulunitednations/corporate-identity/css/dark';
 ```
 
 ### Available Colors
@@ -111,6 +119,36 @@ npm run generate:css
 
 # Build the package
 npm run build
+```
+
+### Creating a Release
+
+To publish a new version:
+
+1. **Update the version** in `package.json`
+2. **Commit your changes** to the main branch
+3. **Create a new release** on GitHub:
+   - Go to [Releases](https://github.com/DeutscheModelUnitedNations/dmun-corporate-identity/releases)
+   - Click "Create a new release"
+   - Create a new tag (e.g., `v1.1.0`)
+   - Add release notes
+   - Click "Publish release"
+
+4. **Automatic publishing**: GitHub Actions will automatically:
+   - Build the package
+   - Run tests
+   - Publish to GitHub Package Registry (`npm.pkg.github.com`)
+
+### 🔧 **Setup for Users**
+
+Users need to configure npm to access your GitHub Packages:
+
+```bash
+# Configure npm to use GitHub Packages for your organization
+npm config set @deutschemodulunitednations:registry https://npm.pkg.github.com
+
+# If installing in a project, you can also use .npmrc file:
+echo "@deutschemodulunitednations:registry=https://npm.pkg.github.com" >> .npmrc
 ```
 
 ## Files Structure
