@@ -41,6 +41,9 @@
 		"colors.yml",
 		"README.md"
 	],
+	"publishConfig": {
+		"access": "public"
+	},
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
