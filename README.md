@@ -4,13 +4,7 @@ A comprehensive corporate identity package for Deutsche Model United Nations (DM
 
 ## Installation
 
-First, configure npm to use GitHub Packages for the `@deutschemodelunitednations` scope:
-
-```bash
-npm config set @deutschemodelunitednations:registry https://npm.pkg.github.com
-```
-
-Then install the package:
+Install the package from npm:
 
 ```bash
 npm install @deutschemodelunitednations/corporate-identity
@@ -125,39 +119,37 @@ npm run build
 
 To publish a new version:
 
-1. **Update the version** in `package.json`
-2. **Commit your changes** to the main branch
-3. **Create a new release** on GitHub:
+1. **Create a new release** on GitHub:
    - Go to [Releases](https://github.com/DeutscheModelUnitedNations/dmun-corporate-identity/releases)
    - Click "Create a new release"
-   - Create a new tag (e.g., `v1.1.0`)
-   - Add release notes
+   - Create a new tag with semantic versioning (e.g., `v1.1.0`)
+   - Add release notes describing changes
    - Click "Publish release"
 
-4. **Automatic publishing**: GitHub Actions will automatically:
-   - Build the package
+2. **Automatic publishing**: GitHub Actions will automatically:
+   - Extract version from the release tag
+   - Build the package (CSS + library)
    - Run tests
-   - Publish to GitHub Package Registry (`npm.pkg.github.com`)
+   - Publish to npm registry (`registry.npmjs.org`)
 
-### 🔧 **Setup for Users**
+### � **Installation for Users**
 
-Users need to configure npm to access your GitHub Packages:
+Users can install the package directly from npm:
 
 ```bash
-# Configure npm to use GitHub Packages for your organization
-npm config set @deutschemodelunitednations:registry https://npm.pkg.github.com
-
-# If installing in a project, you can also use .npmrc file:
-echo "@deutschemodelunitednations:registry=https://npm.pkg.github.com" >> .npmrc
+npm install @deutschemodelunitednations/corporate-identity
 ```
+
+No additional configuration required!
 
 ## Files Structure
 
 ```
-dist/
+lib/
 ├── index.js              # CommonJS entry point
 ├── index.mjs             # ES Module entry point  
 ├── index.d.ts            # TypeScript definitions
+dist/
 ├── dmun-tailwind-shades.css  # Color shade variables
 ├── dmun-daisyUI-light.css    # Light theme
 └── dmun-daisyUI-dark.css     # Dark theme
