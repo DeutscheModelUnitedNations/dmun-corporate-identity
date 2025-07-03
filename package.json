@@ -31,9 +31,11 @@
 			"require": "./lib/index.js"
 		},
 		"./colors": "./colors.yml",
-		"./css/shades": "./dist/dmun-tailwind-shades.css",
-		"./css/light": "./dist/dmun-daisyUI-light.css",
-		"./css/dark": "./dist/dmun-daisyUI-dark.css"
+		"./css/shades/dmun": "./dist/dmun-tailwind-shades.css",
+		"./css/shades/munsh": "./dist/munsh-tailwind-shades.css",
+		"./css/shades/munbw": "./dist/munbw-tailwind-shades.css",
+		"./css/theme/light": "./dist/dmun-daisyUI-light.css",
+		"./css/theme/dark": "./dist/dmun-daisyUI-dark.css"
 	},
 	"files": [
 		"lib/",
@@ -47,13 +49,14 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "npm run generate:css && npm run build:lib",
+		"build": "npm run generate:css && npm run update:exports && npm run build:lib",
 		"build:lib": "vite build --mode lib",
 		"preview": "vite preview",
 		"prepublishOnly": "npm run build",
 		"generate:css": "npm run generate:shades && npm run generate:daisyui",
 		"generate:shades": "node scripts/generate-shades-css.js",
-		"generate:daisyui": "node scripts/generate-daisyUI-css.js"
+		"generate:daisyui": "node scripts/generate-daisyUI-css.js",
+		"update:exports": "node scripts/update-package-exports.js"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^3.0.8",

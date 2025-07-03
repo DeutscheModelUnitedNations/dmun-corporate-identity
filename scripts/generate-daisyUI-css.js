@@ -6,43 +6,54 @@ const config = yaml.load(yml);
 
 const { shades, themes } = config;
 
+// Ensure dist directory exists
 fs.mkdirSync('./dist', { recursive: true });
 
-for (const [themeName, themeObj] of Object.entries(themes)) {
-	let css = `@plugin "daisyui/theme" {\n`;
+// Generate CSS files for each theme dynamically
+for (const [themeName, themeConfig] of Object.entries(themes)) {
+	let css = `/* Generated DaisyUI theme: ${themeName} */\n@plugin "daisyui/theme" {\n`;
 
-	for (const [key, value] of Object.entries(themeObj.visuals)) {
-		css += `  --${key}: ${value};\n`;
+	// Add visual properties
+	for (const [visualKey, visualValue] of Object.entries(themeConfig.visuals)) {
+		css += `  --${visualKey}: ${visualValue};\n`;
 	}
 
-	// Cross-reference color keys with shades
-	for (const [colorKey, shadeRef] of Object.entries(themeObj.colors)) {
+	// Add color mappings
+	for (const [colorKey, shadeRef] of Object.entries(themeConfig.colors)) {
 		if (shadeRef.startsWith('#')) {
-			// If the shadeRef is a hex color, use it directly
+			// Direct hex color
 			css += `  --${colorKey}: ${shadeRef};\n`;
 			continue;
 		}
 
-		// shadeRef could be e.g. "primary-500" or "accent-900"
-		const [shadeName, shadeLevel] = shadeRef.split('-');
-		let value = null;
+		// Handle shade references like "primary-500"
+		const [colorName, shadeLevel] = shadeRef.split('-');
+		let resolvedValue = null;
 
 		if (shadeLevel) {
-			// Try to find the base color in shades
-			if (shades.dmun && shades.dmun[shadeName]) {
-				// If you want to use the base color, you can use shades.dmun[shadeName]
-				// But since you want the shade, you might want to use a generated variable
-				value = `var(--color-${shadeName}-${shadeLevel})`;
+			// Look for the color in any shade palette (prioritize 'dmun' for backward compatibility)
+			const shadePalettes = Object.keys(shades);
+			for (const palette of ['dmun', ...shadePalettes.filter(p => p !== 'dmun')]) {
+				if (shades[palette] && shades[palette][colorName]) {
+					resolvedValue = `var(--color-${colorName}-${shadeLevel})`;
+					break;
+				}
 			}
 		} else {
-			// Fallback: just use the base color if no shade level
-			if (shades.dmun && shades.dmun[shadeName]) {
-				value = shades.dmun[shadeName];
+			// Direct color reference without shade level
+			const shadePalettes = Object.keys(shades);
+			for (const palette of ['dmun', ...shadePalettes.filter(p => p !== 'dmun')]) {
+				if (shades[palette] && shades[palette][colorName]) {
+					resolvedValue = shades[palette][colorName];
+					break;
+				}
 			}
 		}
 
-		if (value) {
-			css += `  --${colorKey}: ${value};\n`;
+		if (resolvedValue) {
+			css += `  --${colorKey}: ${resolvedValue};\n`;
+		} else {
+			console.warn(`⚠️  Could not resolve color reference: ${shadeRef} for ${colorKey} in theme ${themeName}`);
 		}
 	}
 
