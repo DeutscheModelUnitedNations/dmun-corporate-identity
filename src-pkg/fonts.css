@@ -26,3 +26,33 @@
     --font-family-serif: var(--font-family-serif);
     --font-family-mono: var(--font-family-mono);
 }
+
+/* This file imports all required font weights from Fontsource */
+
+/* Outfit (Sans-serif) - All weights */
+@import '@fontsource/outfit/100';
+@import '@fontsource/outfit/200';
+@import '@fontsource/outfit/300';
+@import '@fontsource/outfit/400';
+@import '@fontsource/outfit/500';
+@import '@fontsource/outfit/600';
+@import '@fontsource/outfit/700';
+@import '@fontsource/outfit/800';
+@import '@fontsource/outfit/900';
+
+/* Roboto Mono (Monospace) - All weights */
+@import '@fontsource/roboto-mono/100';
+@import '@fontsource/roboto-mono/200';
+@import '@fontsource/roboto-mono/300';
+@import '@fontsource/roboto-mono/400';
+@import '@fontsource/roboto-mono/500';
+@import '@fontsource/roboto-mono/600';
+@import '@fontsource/roboto-mono/700';
+
+/* Vollkorn (Serif) - All weights */
+@import '@fontsource/vollkorn/400';
+@import '@fontsource/vollkorn/500';
+@import '@fontsource/vollkorn/600';
+@import '@fontsource/vollkorn/700';
+@import '@fontsource/vollkorn/800';
+@import '@fontsource/vollkorn/900';

@@ -74,6 +74,9 @@
   "dependencies": {
     "esbuild": "^0.25.5",
     "js-yaml": "^4.1.0",
-    "tailwind-shades": "^1.1.2"
+    "tailwind-shades": "^1.1.2",
+    "@fontsource/outfit": "^5.2.6",
+    "@fontsource/roboto-mono": "^5.2.6",
+    "@fontsource/vollkorn": "^5.2.8"
   }
 }

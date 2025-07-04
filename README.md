@@ -28,25 +28,6 @@ import '@deutschemodelunitednations/corporate-identity/css/theme/dark';
 import '@deutschemodelunitednations/corporate-identity/css/fonts';
 ```
 
-### Loading Fonts from Fontsource
-
-```javascript
-// Import all required Fontsource font weights automatically
-import '@deutschemodelunitednations/corporate-identity/fonts';
-
-// This automatically imports all font weights (100-900) for:
-// - Outfit (sans-serif)
-// - Roboto Mono (monospace)  
-// - Vollkorn (serif)
-//
-// Equivalent to manually importing 27 CSS files:
-// @fontsource/outfit/100.css through @fontsource/outfit/900.css
-// @fontsource/roboto-mono/100.css through @fontsource/roboto-mono/900.css  
-// @fontsource/vollkorn/100.css through @fontsource/vollkorn/900.css
-```
-
-**Note**: This import is designed for bundler environments (Vite, Webpack, etc.) that can handle CSS imports.
-
 ### Using with TailwindCSS
 
 ```css

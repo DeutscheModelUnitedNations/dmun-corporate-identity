@@ -15,14 +15,13 @@ function updatePackageExports() {
 
 	// Initialize exports with core library exports
 	const exports = {
-		".": {
-			"types": "./lib/index.d.ts",
-			"import": "./lib/index.mjs",
-			"require": "./lib/index.js"
+		'.': {
+			types: './lib/index.d.ts',
+			import: './lib/index.mjs',
+			require: './lib/index.js'
 		},
-		"./colors": "./src-pkg/colors.yml",
-		"./css/fonts": "./dist/dmun-fonts.css",
-		"./fonts": "./lib/fonts.js"
+		'./colors': './src-pkg/colors.yml',
+		'./css/fonts': './dist/dmun-fonts.css'
 	};
 
 	// Add exports for shade CSS files
@@ -48,9 +47,18 @@ function updatePackageExports() {
 	fs.writeFileSync('./package.json', JSON.stringify(packageJson, null, '\t'));
 
 	console.log('✅ Updated package.json exports:');
-	console.log('📦 Library exports:', Object.keys(exports).filter(k => k.startsWith('.') && !k.includes('/css/')));
-	console.log('🎨 Shade exports:', Object.keys(exports).filter(k => k.includes('/css/shades/')));
-	console.log('🌈 Theme exports:', Object.keys(exports).filter(k => k.includes('/css/theme/')));
+	console.log(
+		'📦 Library exports:',
+		Object.keys(exports).filter((k) => k.startsWith('.') && !k.includes('/css/'))
+	);
+	console.log(
+		'🎨 Shade exports:',
+		Object.keys(exports).filter((k) => k.includes('/css/shades/'))
+	);
+	console.log(
+		'🌈 Theme exports:',
+		Object.keys(exports).filter((k) => k.includes('/css/theme/'))
+	);
 }
 
 updatePackageExports();
