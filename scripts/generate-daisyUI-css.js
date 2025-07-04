@@ -1,7 +1,7 @@
 import fs from 'fs';
 import yaml from 'js-yaml';
 
-const yml = fs.readFileSync('./colors.yml', 'utf8');
+const yml = fs.readFileSync('./src-pkg/colors.yml', 'utf8');
 const config = yaml.load(yml);
 
 const { shades, themes } = config;

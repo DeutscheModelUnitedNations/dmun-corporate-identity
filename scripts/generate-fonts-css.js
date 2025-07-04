@@ -1,7 +1,7 @@
 import fs from 'fs';
 
 // DMUN Font Faces
-const fontFaces = fs.readFileSync('./fonts.css', 'utf8');
+const fontFaces = fs.readFileSync('./src-pkg/fonts.css', 'utf8');
 
 // Ensure dist directory exists
 fs.mkdirSync('./dist', { recursive: true });

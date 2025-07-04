@@ -7,7 +7,7 @@ import path from 'path';
  */
 function updatePackageExports() {
 	// Read colors configuration
-	const yml = fs.readFileSync('./colors.yml', 'utf8');
+	const yml = fs.readFileSync('./src-pkg/colors.yml', 'utf8');
 	const config = yaml.load(yml);
 
 	// Read current package.json
@@ -20,8 +20,9 @@ function updatePackageExports() {
 			"import": "./lib/index.mjs",
 			"require": "./lib/index.js"
 		},
-		"./colors": "./colors.yml",
-		"./css/fonts": "./dist/dmun-fonts.css"
+		"./colors": "./src-pkg/colors.yml",
+		"./css/fonts": "./dist/dmun-fonts.css",
+		"./fonts": "./lib/fonts.js"
 	};
 
 	// Add exports for shade CSS files

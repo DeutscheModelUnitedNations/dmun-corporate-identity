@@ -30,8 +30,9 @@
 			"import": "./lib/index.mjs",
 			"require": "./lib/index.js"
 		},
-		"./colors": "./colors.yml",
+		"./colors": "./src-pkg/colors.yml",
 		"./css/fonts": "./dist/dmun-fonts.css",
+		"./fonts": "./lib/fonts.js",
 		"./css/shades/dmun": "./dist/dmun-tailwind-shades.css",
 		"./css/shades/munsh": "./dist/munsh-tailwind-shades.css",
 		"./css/shades/munbw": "./dist/munbw-tailwind-shades.css",
@@ -50,8 +51,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "npm run generate:css && npm run update:exports && npm run build:lib",
+		"build": "npm run generate:css && npm run update:exports && npm run build:lib && npm run build:fonts",
 		"build:lib": "vite build --mode lib",
+		"build:fonts": "node scripts/build-fonts.js",
 		"preview": "vite preview",
 		"prepublishOnly": "npm run build",
 		"generate:css": "npm run generate:shades && npm run generate:daisyui && npm run generate:fonts",
@@ -80,6 +82,9 @@
 		"vite-plugin-dts": "^4.4.0"
 	},
 	"dependencies": {
+		"@fontsource/outfit": "^5.2.6",
+		"@fontsource/roboto-mono": "^5.2.6",
+		"@fontsource/vollkorn": "^5.2.8",
 		"ajv": "^8.17.1",
 		"esbuild": "^0.25.5",
 		"js-yaml": "^4.1.0",

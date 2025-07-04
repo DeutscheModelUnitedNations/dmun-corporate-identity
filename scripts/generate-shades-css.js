@@ -2,7 +2,7 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 import shadesOf from 'tailwind-shades';
 
-const yml = fs.readFileSync('./colors.yml', 'utf8');
+const yml = fs.readFileSync('./src-pkg/colors.yml', 'utf8');
 const colors = yaml.load(yml);
 
 // Ensure dist directory exists

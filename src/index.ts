@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 // Load colors configuration
 export function loadColors() {
-	const colorsPath = path.join(__dirname, '..', 'colors.yml');
+	const colorsPath = path.join(__dirname, '..', 'src-pkg/colors.yml');
 	const yml = fs.readFileSync(colorsPath, 'utf8');
 	return yaml.load(yml) as {
 		shades: Record<string, Record<string, string>>;

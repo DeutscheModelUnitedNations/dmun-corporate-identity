@@ -2,7 +2,15 @@
   "name": "@dmun/corporate-identity",
   "version": "1.0.0",
   "description": "DMUN Corporate Identity containing tailwind and daisyUI configurations",
-  "keywords": ["corporate-identity", "dmun", "tailwindcss", "daisyui", "css", "colors", "themes"],
+  "keywords": [
+    "corporate-identity",
+    "dmun",
+    "tailwindcss",
+    "daisyui",
+    "css",
+    "colors",
+    "themes"
+  ],
   "homepage": "https://github.com/DeutscheModelUnitedNations/dmun-corporate-identity#readme",
   "bugs": {
     "url": "https://github.com/DeutscheModelUnitedNations/dmun-corporate-identity/issues"
@@ -22,12 +30,17 @@
       "import": "./lib/index.mjs",
       "require": "./lib/index.js"
     },
-    "./colors": "./colors.yml",
+    "./colors": "./src-pkg/colors.yml",
     "./css/shades": "./dist/dmun-tailwind-shades.css",
     "./css/light": "./dist/dmun-daisyUI-light.css",
     "./css/dark": "./dist/dmun-daisyUI-dark.css"
   },
-  "files": ["lib/", "dist/*.css", "colors.yml", "README.md"],
+  "files": [
+    "lib/",
+    "dist/*.css",
+    "colors.yml",
+    "README.md"
+  ],
   "type": "module",
   "scripts": {
     "dev": "vite dev",
