@@ -11,7 +11,7 @@ fs.mkdirSync('./dist', { recursive: true });
 // Generate CSS files for each shade palette
 for (const [shadePalette, values] of Object.entries(colors.shades)) {
 	let css = `/* Generated Tailwind shades for ${shadePalette} palette */\n@theme {\n`;
-	
+
 	for (const [colorName, hexValue] of Object.entries(values)) {
 		const shades = shadesOf(hexValue);
 		Object.keys(shades).forEach((shadeLevel) => {
@@ -19,7 +19,7 @@ for (const [shadePalette, values] of Object.entries(colors.shades)) {
 		});
 		css += `\n`;
 	}
-	
+
 	css += '}\n';
 
 	const filename = `./dist/${shadePalette}-tailwind-shades.css`;

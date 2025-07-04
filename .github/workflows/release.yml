@@ -37,6 +37,7 @@ jobs:
           echo "=== Checking if generate scripts exist ==="
           test -f scripts/generate-shades-css.js && echo "✅ generate-shades-css.js exists" || echo "❌ generate-shades-css.js missing"
           test -f scripts/generate-daisyUI-css.js && echo "✅ generate-daisyUI-css.js exists" || echo "❌ generate-daisyUI-css.js missing"
+          test -f scripts/generate-fonts-css.js && echo "✅ generate-fonts-css.js exists" || echo "❌ generate-fonts-css.js missing"
 
       - name: Build package
         run: npm run build

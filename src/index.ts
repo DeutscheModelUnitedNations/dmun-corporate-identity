@@ -66,6 +66,9 @@ export function getCssFiles() {
 		cssFiles.themes[theme] = `../dist/dmun-daisyUI-${theme}.css`;
 	}
 
+	// Add fonts CSS file
+	cssFiles.fonts = '../dist/dmun-fonts.css';
+
 	return cssFiles;
 }
 
@@ -82,6 +85,9 @@ export const cssFiles = (() => {
 	for (const theme of Object.keys(colors.themes)) {
 		files[theme] = `../dist/dmun-daisyUI-${theme}.css`;
 	}
+
+	// Add fonts file
+	files.fonts = '../dist/dmun-fonts.css';
 
 	return files;
 })();

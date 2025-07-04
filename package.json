@@ -31,6 +31,7 @@
 			"require": "./lib/index.js"
 		},
 		"./colors": "./colors.yml",
+		"./css/fonts": "./dist/dmun-fonts.css",
 		"./css/shades/dmun": "./dist/dmun-tailwind-shades.css",
 		"./css/shades/munsh": "./dist/munsh-tailwind-shades.css",
 		"./css/shades/munbw": "./dist/munbw-tailwind-shades.css",
@@ -53,9 +54,10 @@
 		"build:lib": "vite build --mode lib",
 		"preview": "vite preview",
 		"prepublishOnly": "npm run build",
-		"generate:css": "npm run generate:shades && npm run generate:daisyui",
+		"generate:css": "npm run generate:shades && npm run generate:daisyui && npm run generate:fonts",
 		"generate:shades": "node scripts/generate-shades-css.js",
 		"generate:daisyui": "node scripts/generate-daisyUI-css.js",
+		"generate:fonts": "node scripts/generate-fonts-css.js",
 		"update:exports": "node scripts/update-package-exports.js"
 	},
 	"devDependencies": {
@@ -68,16 +70,17 @@
 		"daisyui": "^5.0.43",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
+		"rollup": "^4.44.1",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
 		"tailwindcss": "^4.1.10",
 		"typescript": "^5.0.0",
 		"vite": "^6.2.6",
 		"vite-plugin-devtools-json": "^0.2.0",
-		"vite-plugin-dts": "^4.4.0",
-		"rollup": "^4.44.1"
+		"vite-plugin-dts": "^4.4.0"
 	},
 	"dependencies": {
+		"ajv": "^8.17.1",
 		"esbuild": "^0.25.5",
 		"js-yaml": "^4.1.0",
 		"tailwind-shades": "^1.1.2"

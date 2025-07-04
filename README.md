@@ -23,6 +23,9 @@ import '@deutschemodelunitednations/corporate-identity/css/shades/munbw';
 // Import theme CSS files
 import '@deutschemodelunitednations/corporate-identity/css/theme/light';
 import '@deutschemodelunitednations/corporate-identity/css/theme/dark';
+
+// Import DMUN font faces
+import '@deutschemodelunitednations/corporate-identity/css/fonts';
 ```
 
 ### Using with TailwindCSS
@@ -36,6 +39,9 @@ import '@deutschemodelunitednations/corporate-identity/css/theme/dark';
 /* Import themes */
 @import '@deutschemodelunitednations/corporate-identity/css/theme/light';
 @import '@deutschemodelunitednations/corporate-identity/css/theme/dark';
+
+/* Import fonts */
+@import '@deutschemodelunitednations/corporate-identity/css/fonts';
 ```
 
 ### Available Palettes and Themes
@@ -44,6 +50,7 @@ The package dynamically generates CSS files for all palettes and themes defined 
 
 - **Shade Palettes**: `dmun`, `munsh`, `munbw`
 - **Themes**: `light`, `dark`
+- **Fonts**: Complete DMUN typography system
 
 *Note: Additional palettes and themes can be added to `colors.yml` and will be automatically included in the build.*
 
@@ -72,6 +79,21 @@ const availableThemes = dmun.getAllThemeNames(); // ['light', 'dark']
 const cssFiles = dmun.getCssFiles();
 console.log(cssFiles.shades.dmun); // "../dist/dmun-tailwind-shades.css"
 console.log(cssFiles.themes.light); // "../dist/dmun-daisyUI-light.css"
+console.log(cssFiles.fonts); // "../dist/dmun-fonts.css"
+```
+
+### Available Fonts
+
+The package includes carefully selected web fonts optimized for the DMUN corporate identity:
+
+- **Sans Font (Primary)**: Outfit - Modern and beautiful Futura inspired sans-serif for body text and headings. 
+- **Serif Font**: Vollkorn - Use with caution for headings. Don't use for body text.
+- **Monospace Font**: Roboto Mono - Fontface for code, technical and monospaced Numbers contexts
+
+```css
+.font-sans { /* Outfit */ }
+.font-serif { /* Vollkorn */ }
+.font-mono { /* Roboto Mono */ }
 ```
 const allThemes = dmun.getAllThemes();
 ```
@@ -184,7 +206,8 @@ dist/
 ├── munsh-tailwind-shades.css    # MUNSH shade variables
 ├── munbw-tailwind-shades.css    # MUNBW shade variables
 ├── dmun-daisyUI-light.css       # Light theme
-└── dmun-daisyUI-dark.css        # Dark theme
+├── dmun-daisyUI-dark.css        # Dark theme
+└── dmun-fonts.css               # DMUN font faces
 colors.yml                # Source color configuration
 ```
 

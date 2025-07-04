@@ -20,7 +20,8 @@ function updatePackageExports() {
 			"import": "./lib/index.mjs",
 			"require": "./lib/index.js"
 		},
-		"./colors": "./colors.yml"
+		"./colors": "./colors.yml",
+		"./css/fonts": "./dist/dmun-fonts.css"
 	};
 
 	// Add exports for shade CSS files
