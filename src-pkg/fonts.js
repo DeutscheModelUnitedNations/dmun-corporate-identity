@@ -20,13 +20,8 @@ import '@fontsource/roboto-mono/400.css';
 import '@fontsource/roboto-mono/500.css';
 import '@fontsource/roboto-mono/600.css';
 import '@fontsource/roboto-mono/700.css';
-import '@fontsource/roboto-mono/800.css';
-import '@fontsource/roboto-mono/900.css';
 
 // Vollkorn (Serif) - All weights
-import '@fontsource/vollkorn/100.css';
-import '@fontsource/vollkorn/200.css';
-import '@fontsource/vollkorn/300.css';
 import '@fontsource/vollkorn/400.css';
 import '@fontsource/vollkorn/500.css';
 import '@fontsource/vollkorn/600.css';
