@@ -22,9 +22,9 @@
 
 /* Tailwind CSS Font Family Definitions */
 @theme {
-    --font-family-sans: var(--font-family-sans);
-    --font-family-serif: var(--font-family-serif);
-    --font-family-mono: var(--font-family-mono);
+    --font-sans: var(--font-family-sans);
+    --font-serif: var(--font-family-serif);
+    --font-mono: var(--font-family-mono);
 }
 
 /* This file imports all required font weights from Fontsource */
