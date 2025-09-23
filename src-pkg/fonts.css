@@ -1,32 +1,5 @@
 /* DMUN Corporate Identity - Font Faces */
 
-/* CSS Custom Properties for Font Families */
-:root {
-    --font-family-sans: 'Outfit', 'Helvetica Neue', Arial, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
-    --font-family-serif: 'Vollkorn', Georgia, Cambria, 'Times New Roman', Times, serif;
-    --font-family-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-}
-
-/* Utility Classes */
-.font-sans {
-    font-family: var(--font-family-sans);
-}
-
-.font-serif {
-    font-family: var(--font-family-serif);
-}
-
-.font-mono {
-    font-family: var(--font-family-mono);
-}
-
-/* Tailwind CSS Font Family Definitions */
-@theme {
-    --font-sans: var(--font-family-sans);
-    --font-serif: var(--font-family-serif);
-    --font-mono: var(--font-family-mono);
-}
-
 /* This file imports all required font weights from Fontsource */
 
 /* Outfit (Sans-serif) - All weights */
@@ -56,3 +29,30 @@
 @import '@fontsource/vollkorn/700';
 @import '@fontsource/vollkorn/800';
 @import '@fontsource/vollkorn/900';
+
+/* CSS Custom Properties for Font Families */
+:root {
+    --font-family-sans: 'Outfit', 'Helvetica Neue', Arial, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+    --font-family-serif: 'Vollkorn', Georgia, Cambria, 'Times New Roman', Times, serif;
+    --font-family-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+/* Utility Classes */
+.font-sans {
+    font-family: var(--font-family-sans);
+}
+
+.font-serif {
+    font-family: var(--font-family-serif);
+}
+
+.font-mono {
+    font-family: var(--font-family-mono);
+}
+
+/* Tailwind CSS Font Family Definitions */
+@theme {
+    --font-sans: var(--font-family-sans);
+    --font-serif: var(--font-family-serif);
+    --font-mono: var(--font-family-mono);
+}

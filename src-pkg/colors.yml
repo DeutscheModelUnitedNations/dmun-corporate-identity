@@ -32,7 +32,7 @@ shades:
     error: "#F51D42"
 
 themes:
-  light:
+  dmun-light:
     colors:
       base-100: primary-50
       base-200: primary-100
@@ -70,7 +70,7 @@ themes:
       depth: 1
       noise: 0
 
-  dark:
+  dmun-dark:
     colors:
       base-100: primary-900
       base-200: primary-800
