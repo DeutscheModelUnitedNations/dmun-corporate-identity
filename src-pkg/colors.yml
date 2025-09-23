@@ -81,7 +81,7 @@ themes:
     preferences:
       name: "dmun-dark"
       default: false
-      prefersdark: false
+      prefersdark: true
       color-scheme: dark
 
     colors:
