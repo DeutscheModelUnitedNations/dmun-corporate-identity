@@ -57,6 +57,7 @@ themes:
       error-content: error-900
 
     visuals:
+      name: "dmun-light"
       default: true
       prefersdark: false
       color-scheme: light
@@ -95,6 +96,7 @@ themes:
       error-content: error-50
 
     visuals:
+      name: "dmun-dark"
       default: true
       prefersdark: true
       color-scheme: dark

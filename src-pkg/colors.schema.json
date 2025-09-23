@@ -136,6 +136,9 @@
                         "visuals": {
                             "type": "object",
                             "properties": {
+                                "name": {
+                                    "type": "string"
+                                },
                                 "default": {
                                     "type": "boolean"
                                 },

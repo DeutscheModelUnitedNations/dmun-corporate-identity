@@ -35,8 +35,8 @@
 		"./css/shades/dmun": "./dist/dmun-tailwind-shades.css",
 		"./css/shades/munsh": "./dist/munsh-tailwind-shades.css",
 		"./css/shades/munbw": "./dist/munbw-tailwind-shades.css",
-		"./css/theme/light": "./dist/dmun-daisyUI-light.css",
-		"./css/theme/dark": "./dist/dmun-daisyUI-dark.css"
+		"./css/theme/dmun-light": "./dist/dmun-daisyUI-dmun-light.css",
+		"./css/theme/dmun-dark": "./dist/dmun-daisyUI-dmun-dark.css"
 	},
 	"files": [
 		"lib/",
