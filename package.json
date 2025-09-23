@@ -80,8 +80,7 @@
 		"vite": "^6.3.6",
 		"vite-plugin-devtools-json": "^0.2.1",
 		"vite-plugin-dts": "^4.5.4",
-		"zod": "^4.1.11",
-		"zod-to-json-schema": "^3.24.6"
+		"zod": "^4.1.11"
 	},
 	"dependencies": {
 		"@fontsource/outfit": "^5.2.8",
