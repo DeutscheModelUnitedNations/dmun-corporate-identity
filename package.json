@@ -55,10 +55,11 @@
 		"preview": "vite preview",
 		"prepublishOnly": "npm run build",
 		"generate:css": "npm run generate:shades && npm run generate:daisyui && npm run generate:fonts",
-		"generate:shades": "node scripts/generate-shades-css.js",
-		"generate:daisyui": "node scripts/generate-daisyUI-css.js",
-		"generate:fonts": "node scripts/generate-fonts-css.js",
-		"update:exports": "node scripts/update-package-exports.js"
+		"generate:shades": "tsx scripts/generate-shades-css.ts",
+		"generate:daisyui": "tsx scripts/generate-daisyUI-css.ts",
+		"generate:fonts": "tsx scripts/generate-fonts-css.ts",
+		"update:exports": "tsx scripts/update-package-exports.ts",
+		"generate:schema": "tsx src-pkg/schema.ts > src-pkg/schema.json"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-static": "^3.0.9",
@@ -74,10 +75,13 @@
 		"svelte": "^5.39.5",
 		"svelte-check": "^4.3.2",
 		"tailwindcss": "^4.1.13",
+		"tsx": "^4.20.5",
 		"typescript": "^5.9.2",
 		"vite": "^6.3.6",
 		"vite-plugin-devtools-json": "^0.2.1",
-		"vite-plugin-dts": "^4.5.4"
+		"vite-plugin-dts": "^4.5.4",
+		"zod": "^4.1.11",
+		"zod-to-json-schema": "^3.24.6"
 	},
 	"dependencies": {
 		"@fontsource/outfit": "^5.2.8",

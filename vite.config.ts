@@ -19,6 +19,7 @@ export default defineConfig(({ mode }) => {
 				rollupOptions: {
 					external: ['fs', 'path', 'url', 'js-yaml'],
 					output: {
+						exports: 'named',
 						globals: {
 							'js-yaml': 'jsyaml'
 						}

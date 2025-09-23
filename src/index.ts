@@ -92,14 +92,4 @@ export const cssFiles = (() => {
 	return files;
 })();
 
-// Default export
-export default {
-	loadColors,
-	getColorPalette,
-	getTheme,
-	getAllThemes,
-	getAllShadePalettes,
-	getAllThemeNames,
-	getCssFiles,
-	cssFiles // legacy support
-};
+// All functions are already exported above as named exports

@@ -1,0 +1,205 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "shades": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "primary": {
+            "type": "string"
+          },
+          "secondary": {
+            "type": "string"
+          },
+          "accent": {
+            "type": "string"
+          },
+          "info": {
+            "type": "string"
+          },
+          "success": {
+            "type": "string"
+          },
+          "warning": {
+            "type": "string"
+          },
+          "error": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "primary",
+          "secondary",
+          "accent",
+          "info",
+          "success",
+          "warning",
+          "error"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "themes": {
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "preferences": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "default": {
+                "type": "boolean"
+              },
+              "prefersdark": {
+                "type": "boolean"
+              },
+              "color-scheme": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          },
+          "colors": {
+            "type": "object",
+            "properties": {
+              "base-100": {
+                "type": "string"
+              },
+              "base-200": {
+                "type": "string"
+              },
+              "base-300": {
+                "type": "string"
+              },
+              "base-content": {
+                "type": "string"
+              },
+              "primary": {
+                "type": "string"
+              },
+              "primary-content": {
+                "type": "string"
+              },
+              "secondary": {
+                "type": "string"
+              },
+              "secondary-content": {
+                "type": "string"
+              },
+              "accent": {
+                "type": "string"
+              },
+              "accent-content": {
+                "type": "string"
+              },
+              "neutral": {
+                "type": "string"
+              },
+              "neutral-content": {
+                "type": "string"
+              },
+              "info": {
+                "type": "string"
+              },
+              "info-content": {
+                "type": "string"
+              },
+              "success": {
+                "type": "string"
+              },
+              "success-content": {
+                "type": "string"
+              },
+              "warning": {
+                "type": "string"
+              },
+              "warning-content": {
+                "type": "string"
+              },
+              "error": {
+                "type": "string"
+              },
+              "error-content": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "base-100",
+              "base-200",
+              "base-300",
+              "primary",
+              "primary-content",
+              "secondary",
+              "secondary-content",
+              "accent",
+              "accent-content",
+              "neutral",
+              "neutral-content",
+              "info",
+              "info-content",
+              "success",
+              "success-content",
+              "warning",
+              "warning-content",
+              "error",
+              "error-content"
+            ],
+            "additionalProperties": false
+          },
+          "visuals": {
+            "type": "object",
+            "properties": {
+              "radius-selector": {
+                "type": "string"
+              },
+              "radius-field": {
+                "type": "string"
+              },
+              "radius-box": {
+                "type": "string"
+              },
+              "size-selector": {
+                "type": "string"
+              },
+              "size-field": {
+                "type": "string"
+              },
+              "border": {
+                "type": "string"
+              },
+              "depth": {
+                "type": "string"
+              },
+              "noise": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": [
+          "preferences",
+          "colors",
+          "visuals"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "shades",
+    "themes"
+  ],
+  "additionalProperties": false
+}

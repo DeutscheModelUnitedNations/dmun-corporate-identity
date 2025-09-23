@@ -1,20 +1,46 @@
 import fs from 'fs';
 import yaml from 'js-yaml';
 import path from 'path';
+import { schema } from '../src-pkg/schema.js';
+
+interface PackageExport {
+	types?: string;
+	import?: string;
+	require?: string;
+}
+
+interface PackageExports {
+	[key: string]: string | PackageExport;
+}
+
+interface PackageJson {
+	exports: PackageExports;
+	[key: string]: any;
+}
 
 /**
  * Updates package.json exports based on generated files
  */
-function updatePackageExports() {
+function updatePackageExports(): void {
 	// Read colors configuration
 	const yml = fs.readFileSync('./src-pkg/colors.yml', 'utf8');
-	const config = yaml.load(yml);
+	const rawConfig = yaml.load(yml);
+
+	// Validate the configuration against the schema
+	const parseResult = schema.safeParse(rawConfig);
+	if (!parseResult.success) {
+		console.error('❌ Configuration validation failed:');
+		console.error(parseResult.error.format());
+		process.exit(1);
+	}
+
+	const config = parseResult.data;
 
 	// Read current package.json
-	const packageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
+	const packageJson: PackageJson = JSON.parse(fs.readFileSync('./package.json', 'utf8'));
 
 	// Initialize exports with core library exports
-	const exports = {
+	const exports: PackageExports = {
 		'.': {
 			types: './lib/index.d.ts',
 			import: './lib/index.mjs',

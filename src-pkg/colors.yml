@@ -1,4 +1,4 @@
-$schema: ./colors.schema.json
+$schema: ./schema.json
 
 shades:
   dmun:
@@ -33,6 +33,12 @@ shades:
 
 themes:
   dmun-light:
+    preferences:
+      name: "dmun-light"
+      default: true
+      prefersdark: false
+      color-scheme: dark
+
     colors:
       base-100: primary-50
       base-200: primary-100
@@ -72,6 +78,12 @@ themes:
       noise: 0
 
   dmun-dark:
+    preferences:
+      name: "dmun-dark"
+      default: false
+      prefersdark: false
+      color-scheme: dark
+
     colors:
       base-100: primary-900
       base-200: primary-800
@@ -96,11 +108,6 @@ themes:
       error-content: error-50
 
     visuals:
-      name: "dmun-dark"
-      default: true
-      prefersdark: true
-      color-scheme: dark
-
       radius-selector: 0.5rem
       radius-field: 0.5rem
       radius-box: 0.5rem
