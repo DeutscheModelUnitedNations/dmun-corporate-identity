@@ -6,8 +6,8 @@ shades:
     secondary: "#ABABAB"
     accent: "#D0AF65"
 
-    info: "#45BC64"
-    success: "#587491"
+    info: "#587491"
+    success: "#45BC64"
     warning: "#F77E19"
     error: "#F51D42"
 
@@ -16,8 +16,8 @@ shades:
     secondary: "#ABABAB"
     accent: "#D0AF65"
 
-    info: "#45BC64"
-    success: "#587491"
+    info: "#587491"
+    success: "#45BC64"
     warning: "#F77E19"
     error: "#F51D42"
 
@@ -26,8 +26,8 @@ shades:
     secondary: "#ABABAB"
     accent: "#D0AF65"
 
-    info: "#45BC64"
-    success: "#587491"
+    info: "#587491"
+    success: "#45BC64"
     warning: "#F77E19"
     error: "#F51D42"
 
