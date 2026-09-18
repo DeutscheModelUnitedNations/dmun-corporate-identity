@@ -3,23 +3,47 @@ name: Publish Package
 on:
   release:
     types: [published]
+  # Manual escape hatch. `gh run rerun` replays a run against the workflow file
+  # as it was at the time, so a failed publish cannot pick up a fixed workflow.
+  # This lets an existing tag be published without deleting and recreating the
+  # GitHub release.
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag to publish, e.g. v2.0.0'
+        required: true
+        type: string
 
 jobs:
   publish:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      packages: write
-    
+      # Required for npm Trusted Publishing: lets the job mint the short-lived
+      # OIDC token that npm exchanges for publish rights. There is no NPM_TOKEN
+      # any more — nothing here can expire.
+      id-token: write
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          # On workflow_dispatch, check out the tag being published rather than
+          # the branch tip, so a manual run publishes exactly what was tagged.
+          ref: ${{ github.event.release.tag_name || inputs.tag }}
 
       - name: Setup Node.js for npm registry
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Ensure npm supports trusted publishing
+        # Trusted publishing needs npm >= 11.5.1. Pinned rather than @latest so a
+        # future npm release cannot change publish behaviour without a commit here.
+        run: |
+          npm install -g npm@^11.5.1
+          npm --version
 
       - name: Install dependencies
         run: |
@@ -47,8 +71,10 @@ jobs:
 
       - name: Update package.json version for npm registry
         run: |
-          # Extract version from GitHub release tag (remove 'v' prefix if present)
-          VERSION=$(echo "${{ github.event.release.tag_name }}" | sed 's/^v//')
+          # Extract version from the release tag, or from the manual input
+          # (remove 'v' prefix if present)
+          TAG="${{ github.event.release.tag_name || inputs.tag }}"
+          VERSION="${TAG#v}"
           echo "Setting version to: $VERSION"
           
           node -e "
@@ -62,6 +88,8 @@ jobs:
           "
 
       - name: Publish to npm registry
+        # Authenticated by OIDC, not by a token. Requires a one-time setup on
+        # npmjs.com: package > Settings > Trusted Publisher > GitHub Actions,
+        # with this repository and the workflow filename `release.yml`.
+        # npm attaches a provenance attestation automatically on this path.
         run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
