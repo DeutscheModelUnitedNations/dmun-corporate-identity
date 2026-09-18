@@ -24,9 +24,11 @@ fs.mkdirSync('./dist', { recursive: true });
 for (const [themeName, themeConfig] of Object.entries(themes)) {
 	let css = `/* Generated DaisyUI theme: ${themeName} */\n@plugin "daisyui/theme" {\n`;
 
-	// Add preferences without dashes
+	// Add preferences. Keys are passed through verbatim: the daisyUI theme plugin
+	// destructures `"color-scheme"` with a dash, so mangling it to an underscore
+	// silently drops the setting and leaves the theme on `color-scheme: normal`.
 	for (const [prefKey, prefValue] of Object.entries(themeConfig.preferences)) {
-		css += `  ${prefKey.replace(/-/g, '_')}: ${prefValue};\n`;
+		css += `  ${prefKey}: ${prefValue};\n`;
 	}
 
 	// Add visual properties
@@ -37,8 +39,9 @@ for (const [themeName, themeConfig] of Object.entries(themes)) {
 	// Add color mappings
 	for (const [colorKey, shadeRef] of Object.entries(themeConfig.colors)) {
 		if (shadeRef.startsWith('#')) {
-			// Direct hex color
-			css += `  --${colorKey}: ${shadeRef};\n`;
+			// Direct hex color — still a daisyUI colour token, so it needs the
+			// same `--color-` prefix the shade references get.
+			css += `  --color-${colorKey}: ${shadeRef};\n`;
 			continue;
 		}
 

@@ -2,16 +2,19 @@
 
 /* This file imports all required font weights from Fontsource */
 
-/* Outfit (Sans-serif) - All weights */
-@import '@fontsource/outfit/100';
+/* Outfit (Sans-serif) - Hausschrift
+ *
+ * Das Corporate Design kennt genau vier Schriftschnitte, und die sechs
+ * Typo-Rollen des Leitfadens greifen ausschließlich auf diese zu:
+ *   ExtraLight 200  Titel
+ *   Light       300  Überschrift 2
+ *   Regular     400  Fließtext
+ *   Bold        700  Unterzeile, Überschrift 1, Überschrift 3
+ * Weitere Schnitte werden bewusst nicht ausgeliefert. */
 @import '@fontsource/outfit/200';
 @import '@fontsource/outfit/300';
 @import '@fontsource/outfit/400';
-@import '@fontsource/outfit/500';
-@import '@fontsource/outfit/600';
 @import '@fontsource/outfit/700';
-@import '@fontsource/outfit/800';
-@import '@fontsource/outfit/900';
 
 /* Roboto Mono (Monospace) - All weights */
 @import '@fontsource/roboto-mono/100';
@@ -32,27 +35,30 @@
 
 /* CSS Custom Properties for Font Families */
 :root {
-    --font-family-sans: 'Outfit', 'Helvetica Neue', Arial, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
-    --font-family-serif: 'Vollkorn', Georgia, Cambria, 'Times New Roman', Times, serif;
-    --font-family-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+	/* Fallback-Kette wie --font-core im DMUN Design System */
+	--font-family-sans: 'Outfit', 'Outfit Fallback', system-ui, -apple-system, 'Segoe UI', sans-serif;
+	--font-family-serif: 'Vollkorn', Georgia, Cambria, 'Times New Roman', Times, serif;
+	--font-family-mono:
+		'Roboto Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas,
+		'Liberation Mono', 'Courier New', monospace;
 }
 
 /* Utility Classes */
 .font-sans {
-    font-family: var(--font-family-sans);
+	font-family: var(--font-family-sans);
 }
 
 .font-serif {
-    font-family: var(--font-family-serif);
+	font-family: var(--font-family-serif);
 }
 
 .font-mono {
-    font-family: var(--font-family-mono);
+	font-family: var(--font-family-mono);
 }
 
 /* Tailwind CSS Font Family Definitions */
 @theme {
-    --font-sans: var(--font-family-sans);
-    --font-serif: var(--font-family-serif);
-    --font-mono: var(--font-family-mono);
+	--font-sans: var(--font-family-sans);
+	--font-serif: var(--font-family-serif);
+	--font-mono: var(--font-family-mono);
 }

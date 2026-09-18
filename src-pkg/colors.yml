@@ -1,58 +1,109 @@
 $schema: ./schema.json
 
+# ═══════════════════════════════════════════════════════════════════════════════
+# DMUN Corporate Identity — Farbwelt
+#
+# Quelle: „Corporate Design Guidelines" (uploads/DMUN CD Guidlines.pdf), über das
+# DMUN Design System — claude.ai/design/p/f5c92668-2a81-4663-8be6-448812d473a3
+#
+# Drei übergreifende Farben tragen alle drei Marken (DMUN, MUN-SH, MUNBW):
+#
+#   DMUN-Blau          #01548F  --blue-700    Logos, Überschriften, zentrale
+#                                             Gestaltungselemente. Auf Weiß.
+#                                             NIE großflächig, NIE auf Navy.
+#   Hintergrund dunkel #1B1837  --navy-900    Die Farbe für große Flächen:
+#                                             Titelseiten, formatfüllende
+#                                             Gründe. Weiße Schrift darauf.
+#   Hintergrund hell   #F0EFF5  --paper-tint  Grau-Lila. Wirkt im Kleinen:
+#                                             Textkästen, Trennflächen.
+#
+#   Seitengrund        #FFFFFF  --paper
+#   Fließtext          #000000  --ink         Echtes Schwarz, kein weiches Grau.
+#
+# Dazu je Marke eine Akzentfarbe. DMUN: Türkis #6D9392 — gezielt und sparsam
+# (Akzentstreifen, Zierelemente, Diagramme), nie großflächig, als Schriftfarbe
+# nur im Ausnahmefall.
+#
+# Regeln aus dem Leitfaden, die hier in die Themes eingebaut sind:
+#   · DMUN-Blau und der dunkle Hintergrund werden nie direkt kombiniert.
+#   · Höchstens zwei Hintergrundfarben pro Artefakt.
+#   · Fließtext immer Schwarz auf Weiß.
+# ═══════════════════════════════════════════════════════════════════════════════
+
 shades:
+  # Jeder Wert wird von `tailwind-shades` zu einer Rampe 50…900 ausgerollt.
   dmun:
-    primary: "#3D7DD2"
-    secondary: "#ABABAB"
-    accent: "#D0AF65"
+    primary: '#01548F' # DMUN-Blau (--blue-700)
+    secondary: '#9C9C9C' # Grau (--grey-500). Die Rampe trifft die weiteren
+    #                      Neutrals des Leitfadens fast exakt:
+    #                      secondary-200 #d7d7d7 ≙ --grey-200 #D8D8D8
+    #                      secondary-100 #ebebeb ≙ --grey-100 #F2F2F2
+    accent: '#6D9392' # Akzentfarbe Türkis (--accent ≙ --design-dmun-300).
+    #                   Die Rampe trifft die publizierten DMUN-Designfarben:
+    #                   accent-300 #a7bebe ≙ --design-dmun-100 #9CB6B5
+    #                   accent-400 #8aa9a8 ≙ --design-dmun-200 #84A4A4
+    #                   accent-500 #6d9392 ≙ --design-dmun-300 #6D9392
+    #                   accent-600 #577675 ≙ --design-dmun-400 #557372
+    #                   accent-700 #415858 ≙ --design-dmun-500 #3D5352
 
-    info: "#587491"
-    success: "#45BC64"
-    warning: "#F77E19"
-    error: "#F51D42"
+    # Das Corporate Design definiert KEINE semantischen Statusfarben — im
+    # Leitfaden übernimmt DMUN-Blau die Signalrolle in Formularzuständen.
+    # Die folgenden vier Werte sind daher unverändert aus der bisherigen
+    # Konfiguration übernommen und mit DMUN abzustimmen.
+    info: '#587491'
+    success: '#45BC64'
+    warning: '#F77E19'
+    error: '#F51D42'
 
+  # MUN-SH und MUNBW teilen sich die übergreifende Farbwelt und ergänzen je eine
+  # eigene Akzentfarbe. Diese sind noch nicht veröffentlicht — bis dahin erben
+  # beide Paletten die DMUN-Akzentfarbe, damit nichts ungestylt rendert.
   munsh:
-    primary: "#3D7DD2"
-    secondary: "#ABABAB"
-    accent: "#D0AF65"
-
-    info: "#587491"
-    success: "#45BC64"
-    warning: "#F77E19"
-    error: "#F51D42"
+    primary: '#01548F'
+    secondary: '#9C9C9C'
+    accent: '#6D9392' # vorläufig: DMUN-Akzent
+    info: '#587491'
+    success: '#45BC64'
+    warning: '#F77E19'
+    error: '#F51D42'
 
   munbw:
-    primary: "#3D7DD2"
-    secondary: "#ABABAB"
-    accent: "#D0AF65"
-
-    info: "#587491"
-    success: "#45BC64"
-    warning: "#F77E19"
-    error: "#F51D42"
+    primary: '#01548F'
+    secondary: '#9C9C9C'
+    accent: '#6D9392' # vorläufig: DMUN-Akzent
+    info: '#587491'
+    success: '#45BC64'
+    warning: '#F77E19'
+    error: '#F51D42'
 
 themes:
+  # ── Die helle Welt ──────────────────────────────────────────────────────────
+  # Weißer Seitengrund, schwarzer Fließtext, DMUN-Blau für Überschriften und
+  # Gestaltungselemente. Das ist der Normalfall aller Dokumente.
   dmun-light:
     preferences:
-      name: "light"
+      name: 'light'
       default: true
       prefersdark: false
-      color-scheme: dark
+      color-scheme: light
 
     colors:
-      base-100: primary-50
-      base-200: primary-100
-      base-300: primary-200
+      base-100: '#FFFFFF' # --paper, der Seitengrund
+      base-200: '#F0EFF5' # --paper-tint, Hintergrund hell (Textkästen, Felder)
+      base-300: '#D8D8D8' # --grey-200, --border-subtle
+      base-content: '#000000' # --ink, Fließtext ist echtes Schwarz
 
-      primary: primary-500
-      primary-content: primary-900
-      secondary: secondary-500
-      secondary-content: secondary-900
-      accent: accent-500
-      accent-content: accent-900
-      neutral: primary-900
-      neutral-content: primary-50
+      primary: '#01548F' # DMUN-Blau — Überschriften, Links, Fokus
+      primary-content: '#FFFFFF'
+      secondary: secondary-500 # --grey-500
+      secondary-content: '#000000'
+      accent: '#6D9392' # Akzent Türkis — Akzentstreifen, Zierelemente
+      accent-content: '#FFFFFF'
+      neutral: '#1B1837' # --navy-900, --surface-inverse (dunkle Flächen)
+      neutral-content: '#FFFFFF' # auf dunklem Grund steht Weiß
 
+      # Statusfarben: flache getönte Fläche mit dunkler Schrift — dem flachen,
+      # randlosen Charakter des Leitfadens entsprechend.
       info: info-300
       info-content: info-900
       success: success-300
@@ -63,51 +114,61 @@ themes:
       error-content: error-900
 
     visuals:
-      radius-selector: 0.5rem
-      radius-field: 0.5rem
-      radius-box: 0.5rem
+      # „Radius ist null auf allem außer dem Akzentstreifen." 2px nur auf
+      # interaktivem Chrome (Buttons, Inputs, Badges, Checkboxen); Karten,
+      # Panels, Farbfelder und Textkästen bleiben hart gekantet.
+      radius-selector: 0.125rem # Checkbox, Badge, Toggle (Radio bleibt rund)
+      radius-field: 0.125rem # Button, Input, Select, Tab
+      radius-box: '0' # Card, Alert, Modal — --radius-none
       size-selector: 0.25rem
       size-field: 0.25rem
-      border: 1px
-      depth: 1
-      noise: 0
+      border: 1px # die 1px-Haarlinie
+      depth: 0 # flach: keine Verläufe, keine Pseudo-3D
+      noise: 0 # kein Rauschen, keine Muster
 
+  # ── Die dunkle Welt ─────────────────────────────────────────────────────────
+  # Der Navy-Grund des Leitfadens („Hintergrund dunkel") als Flächenfarbe, weiße
+  # Schrift darauf. DMUN-Blau darf hier nicht direkt auf den dunklen Grund —
+  # `primary` greift deshalb eine helle Stufe der Blau-Rampe ab; Logos und
+  # Überschriften bleiben auf dunklem Grund weiß.
   dmun-dark:
     preferences:
-      name: "dark"
+      name: 'dark'
       default: false
       prefersdark: true
       color-scheme: dark
 
     colors:
-      base-100: primary-900
-      base-200: primary-800
-      base-300: primary-700
+      base-100: '#1B1837' # --navy-900, Hintergrund dunkel
+      base-200: '#2B2750' # --navy-700
+      base-300: '#545269' # --navy-500
+      base-content: '#FFFFFF' # --text-on-inverse, weiße Schrift auf dunkel
 
-      primary: primary-500
-      primary-content: primary-50
-      secondary: secondary-500
-      secondary-content: secondary-50
-      accent: accent-500
-      accent-content: accent-50
-      neutral: primary-50
-      neutral-content: primary-900
+      primary: primary-300 # #6798bc — aufgehelltes DMUN-Blau (s. o.)
+      primary-content: '#1B1837'
+      secondary: secondary-300 # #c4c4c4
+      secondary-content: '#1B1837'
+      accent: accent-400 # #8aa9a8 ≙ --design-dmun-200, die Designfarbe
+      #                    für Flächen auf dunklem Grund
+      accent-content: '#1B1837'
+      neutral: '#FFFFFF' # --paper, die helle Umkehrfläche
+      neutral-content: '#1B1837'
 
-      info: info-700
-      info-content: info-50
-      success: success-700
-      success-content: success-50
-      warning: warning-700
-      warning-content: warning-50
-      error: error-700
-      error-content: error-50
+      info: info-400
+      info-content: info-900
+      success: success-400
+      success-content: success-900
+      warning: warning-400
+      warning-content: warning-900
+      error: error-400
+      error-content: error-900
 
     visuals:
-      radius-selector: 0.5rem
-      radius-field: 0.5rem
-      radius-box: 0.5rem
+      radius-selector: 0.125rem
+      radius-field: 0.125rem
+      radius-box: '0'
       size-selector: 0.25rem
       size-field: 0.25rem
       border: 1px
-      depth: 1
+      depth: 0
       noise: 0

@@ -146,24 +146,51 @@ module.exports = {
 
 ### Available Colors
 
-The package includes the following color palette:
+The palette follows the DMUN *Corporate Design Guidelines* ("Farbwelt"). Three
+colours carry all three brands (DMUN, MUN-SH, MUNBW); each brand adds its own
+accent on top.
 
-- **Primary**: `#3D7DD2` (Blue)
-- **Secondary**: `#ABABAB` (Gray)  
-- **Accent**: `#D0AF65` (Gold)
-- **Info**: `#45BC64` (Green)
-- **Success**: `#587491` (Blue-Gray)
+Ramp seeds — each is expanded into shades (50, 100, 200, ..., 900):
+
+- **Primary**: `#01548F` — DMUN-Blau. Logos, headings, central design elements.
+  Best on white; never over large areas and never on the dark ground.
+- **Secondary**: `#9C9C9C` — the neutral grey. Its `200`/`100` steps land on the
+  guideline greys `#D8D8D8` / `#F2F2F2`.
+- **Accent**: `#6D9392` — Akzentfarbe Türkis. Used sparingly: Akzentstreifen,
+  decorative elements, charts. Its `300`–`700` steps reproduce the published
+  DMUN Designfarben.
+- **Info**: `#587491` (Blue-Gray)
+- **Success**: `#45BC64` (Green)
 - **Warning**: `#F77E19` (Orange)
 - **Error**: `#F51D42` (Red)
 
-Each color comes with automatically generated shades (50, 100, 200, ..., 900, 950).
+> The Corporate Design defines **no** semantic status colours — DMUN-Blau doubles
+> as the attention colour in form states. The four status seeds above are carried
+> over unchanged and still need sign-off from DMUN.
+
+Colours the themes reference directly, outside the ramps:
+
+| Hex | Guideline token | Role |
+| --- | --- | --- |
+| `#FFFFFF` | `--paper` | the page ground |
+| `#F0EFF5` | `--paper-tint` | Hintergrund hell — text boxes, quiet fields |
+| `#1B1837` | `--navy-900` | Hintergrund dunkel — large areas, covers |
+| `#2B2750` / `#545269` | `--navy-700` / `--navy-500` | dark-theme surface steps |
+| `#000000` | `--ink` | Fließtext, true black |
 
 ### Themes
 
-- **Light Theme**: Optimized for light backgrounds
-- **Dark Theme**: Optimized for dark backgrounds
+- **Light Theme** (`dmun-light`, registered as `light`, the default): white page
+  ground, black body copy, DMUN-Blau for headings and links.
+- **Dark Theme** (`dmun-dark`, registered as `dark`, follows
+  `prefers-color-scheme: dark`): the `#1B1837` ground with white type.
+  Because the guidelines forbid combining DMUN-Blau with the dark ground,
+  `primary` there is a lightened step of the blue ramp; logos and headings on
+  dark stay white.
 
-Both themes include DaisyUI-compatible variables and visual configurations.
+Both themes are flat by instruction: `--depth: 0`, `--noise: 0`, `--radius-box: 0`
+for cards, panels and alerts, and `0.125rem` (2px) only on interactive chrome
+— buttons, inputs, badges and checkboxes. The radio dot stays circular.
 
 ## Development
 
@@ -181,7 +208,18 @@ npm run generate:css
 
 # Build the package
 npm run build
+
+# Start the dev app to review the generated output
+npm run dev
 ```
+
+The dev app has two routes:
+
+- `/` — every generated shade ramp, 50 through 900.
+- `/preview` — the daisyUI themes in use: the Farbwelt, the semantic tokens and
+  surfaces, the six type roles, and the component set, with a light/dark toggle.
+  Everything on it is driven by the generated tokens, so it shows what consumers
+  of the package actually get.
 
 ### Creating a Release
 
